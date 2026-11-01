@@ -70,7 +70,7 @@ public class DataTypes {
 		String item = "Notebook";
 		int quantity = 3;
 		double pricee = 4.5;
-		boolean available = true;
+		boolean isAvailable = true;
 
 		// question 15
 
