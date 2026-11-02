@@ -1,65 +1,62 @@
 package assignmentTwo;
 
-import java.util.Scanner;
-
 public class ShoppingBillAndBudget {
 
-	public static void main(String[] args) {
+	double pricePerItem;
+	int quantity;
+	boolean isMember;
+	double budget;
 
-		Scanner sc = new Scanner(System.in);
+	double subtotal;
+	double discount = 0;
+	double finalBill;
+	double moneyLeft;
+	double shortFall;
 
-		double pricePerItem;
-		int quantity;
-		boolean isMember;
-		double budget;
-		double subTotal;
-		double discount;
-		double finalBill;
+	// calculate sub total
 
-		System.out.println("Enter price per item");
+	void calculateSubtotal() {
+		subtotal = pricePerItem * quantity;
+	}
 
-		pricePerItem = sc.nextDouble();
+	// calculate the membership discount with nested if condition
 
-		System.out.println("Enter the quatity");
+	void membershipDiscount() {
 
-		quantity = sc.nextInt();
-
-		System.out.println("Are you a member enter true or false ");
-
-		isMember = sc.nextBoolean();
-
-		System.out.println("Enter your Budget");
-
-		budget = sc.nextDouble();
-
-		// calculate sub total
-		subTotal = pricePerItem * quantity;
-
-		// calculate discount
-
-		discount = 0;
-
-		if (isMember) {
-			if (subTotal >= 100) {
-				discount = subTotal * 0.10;
+		if (isMember == true) {
+			if (subtotal >= 100) {
+				discount = subtotal * 0.10;
 			} else {
-				discount = subTotal * 0.05;
+				discount = subtotal * 0.05;
 			}
+		} else {
+			discount = 0;
 		}
 
-		// final bill
+		// calculate the final bill
 
-		finalBill = subTotal - discount;
-		System.out.println("Your discount is CAD" + " " + discount);
-		System.out.println("Your subtotal  is CAD" + " " + subTotal);
-		System.out.println("Your final bill is CAD" + " " + finalBill);
+	}
 
-		// Budget
+	// calculate the final bill
+	void calculateFinalBill() {
 
-		if (budget >= finalBill) {
+		finalBill = subtotal - discount;
+		System.out.println("Your Final bill is CAD:" + finalBill);
+	}
+
+	// compare final bill with budget and show money left
+
+	void compareBudget() {
+
+		if (finalBill <= budget) {
 			System.out.println("You are within budget");
+			moneyLeft = budget - finalBill;
+			System.out.println("Your money left is:" + moneyLeft);
 		} else {
 			System.out.println("You are over budget");
+			shortFall = finalBill - budget;
+			System.out.println("ShortFall is:" + shortFall);
+
 		}
 
 	}
