@@ -8,7 +8,7 @@ public class ShoppingBillAndBudget {
 	double budget;
 
 	double subtotal;
-	double discount = 0;
+	double discount;
 	double finalBill;
 	double moneyLeft;
 	double shortFall;
@@ -17,6 +17,7 @@ public class ShoppingBillAndBudget {
 
 	void calculateSubtotal() {
 		subtotal = pricePerItem * quantity;
+		System.out.println("Your subtotal is:$" + " " + subtotal);
 	}
 
 	// calculate the membership discount with nested if condition
@@ -26,8 +27,10 @@ public class ShoppingBillAndBudget {
 		if (isMember == true) {
 			if (subtotal >= 100) {
 				discount = subtotal * 0.10;
+				System.out.println("Your discount is:$" + " " + discount);
 			} else {
 				discount = subtotal * 0.05;
+				System.out.println("Your discount is:$" + " " + discount);
 			}
 		} else {
 			discount = 0;
@@ -41,7 +44,7 @@ public class ShoppingBillAndBudget {
 	void calculateFinalBill() {
 
 		finalBill = subtotal - discount;
-		System.out.println("Your Final bill is CAD:" + finalBill);
+		System.out.println("Your Final bill is :$" + finalBill);
 	}
 
 	// compare final bill with budget and show money left
@@ -51,11 +54,11 @@ public class ShoppingBillAndBudget {
 		if (finalBill <= budget) {
 			System.out.println("You are within budget");
 			moneyLeft = budget - finalBill;
-			System.out.println("Your money left is:" + moneyLeft);
+			System.out.println("Your money left is:$" + moneyLeft);
 		} else {
 			System.out.println("You are over budget");
 			shortFall = finalBill - budget;
-			System.out.println("ShortFall is:" + shortFall);
+			System.out.println("ShortFall is:$" + shortFall);
 
 		}
 
