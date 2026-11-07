@@ -24,7 +24,7 @@ public class ShoppingBillAndBudget {
 
 	void membershipDiscount() {
 
-		if (isMember == true) {
+		if (isMember) {
 			if (subtotal >= 100) {
 				discount = subtotal * 0.10;
 				System.out.println("Your discount is:$" + " " + discount);
