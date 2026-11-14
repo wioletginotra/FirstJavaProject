@@ -19,7 +19,7 @@ public class FamilyGinotra {
 			name = sc.nextLine();
 		}
 
-		// name = sc.nextLine();
+		
 
 		System.out.println("Are you earning enter (true/false)");
 
